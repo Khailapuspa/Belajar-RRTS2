@@ -7,7 +7,7 @@ interface initialStateType{
     harga : number
 }
 
-const initialState = {
+const initialState: initialStateType = {
     title : "Kaos Oblong",
     desc : "Berbahan Tipis",
     harga : 50000
