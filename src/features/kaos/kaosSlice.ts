@@ -1,4 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
+
+interface initialStateType{
+    title : string,
+    desc : string,
+    harga : number
+}
 
 const initialState = {
     title : "Kaos Oblong",
@@ -8,12 +15,14 @@ const initialState = {
 
 const kaosSlince = createSlice({
     name : 'kaos',
-    initialState: {
-        kaosku: [],
-    },
+    initialState: initialState,
     reducers:{
-        
+
     }
 })
+
+export const title = (state: RootState) => state.kaos.title;
+export const desc = (state: RootState) => state.kaos.desc;
+export const harga = (state: RootState) => state.kaos.harga;
 
 export default kaosSlince.reducer

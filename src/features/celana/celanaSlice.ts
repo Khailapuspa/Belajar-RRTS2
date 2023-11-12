@@ -1,4 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
+
+
+interface initialStateType{
+    title : string,
+    desc : string,
+    harga : number
+}
 
 const initialState = {
     title : "Celana Gober",
@@ -8,10 +16,14 @@ const initialState = {
 
 const celanaSlice = createSlice({
     name : 'celana',
-    initialState,
+    initialState: initialState,
     reducers:{
 
     }
 })
+
+export const title = (state: RootState) => state.celana.title;
+export const desc = (state: RootState) => state.celana.desc;
+export const harga = (state: RootState) => state.celana.harga;
 
 export default celanaSlice.reducer
