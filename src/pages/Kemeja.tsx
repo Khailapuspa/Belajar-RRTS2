@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { desc, harga, title } from "../features/kemeja/kemejaSlice";
 import { beliBajuAsync } from "../actions/PostBajus";
+import { Button, Card } from "react-bootstrap";
  
 
 const Kemeja = () =>{
@@ -22,13 +23,17 @@ const Kemeja = () =>{
 
     return(
         <div>
-            <div>INI HALAMAN KEMEJA</div>
-                <div>
+            <Card style={{ color: '#0D0D0D' }}>
+            <Card.Body>
+                <Card.Title>INI HALAMAN Kemeja</Card.Title>
+                <Card.Text>
                     <p><b>Produk :</b> {titleKemeja} </p>
                     <p><b>Description :</b> {descKemeja} </p>
                     <p><b>Harga :</b> {hargaKemeja} </p>
-                    <button onClick={HandleButton}>Beli</button>
-                </div>
+                </Card.Text>
+                <Button variant="primary" onClick={HandleButton}>Beli</Button>
+            </Card.Body>
+        </Card>
         </div>
     )
 }

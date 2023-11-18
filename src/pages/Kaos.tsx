@@ -20,7 +20,7 @@ const Kaos = () => {
     return (
         <Card style={{ color: '#0D0D0D' }}>
             <Card.Body>
-                <Card.Title>INI HALAMAN Koas</Card.Title>
+                <Card.Title>INI HALAMAN Kaos</Card.Title>
                 <Card.Text>
                     <p><b>Produk :</b> {titleKaos} </p>
                     <p><b>Description :</b> {descKaos} </p>
