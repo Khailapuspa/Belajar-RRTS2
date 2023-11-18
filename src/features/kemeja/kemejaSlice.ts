@@ -9,7 +9,7 @@ interface initialStateType{
 }
 
 //isi nya ini
-const initialState = {
+const initialState: initialStateType = {
     title : "Kemeja",
     desc : "ini kemeja",
     harga : 20000

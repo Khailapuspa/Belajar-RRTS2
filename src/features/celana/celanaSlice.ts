@@ -8,7 +8,7 @@ interface initialStateType{
     harga : number
 }
 
-const initialState = {
+const initialState : initialStateType = {
     title : "Celana Gober",
     desc : "All Size",
     harga : 70000

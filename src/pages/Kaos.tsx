@@ -2,7 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { desc, harga, title } from "../features/kaos/kaosSlice";
-import { beliBajuAsync } from "../features/kaos/kaosAction";
+import { beliBajuAsync } from "../actions/PostBajus";
+import { Button, Card } from "react-bootstrap";
+
 
 const Kaos = () =>{
 
@@ -19,13 +21,17 @@ const Kaos = () =>{
 
     return(
         <div>
-            <div>INI HALAMAN KAOS</div>
-                <div>
-                    <p><b>Produk :</b> {titleKaos} </p>
-                    <p><b>Description :</b> {descKaos} </p>
-                    <p><b>Harga :</b> {hargaKaos} </p>
-                    <button onClick={HandleButton}>Beli</button>
-                </div>
+            <Card style={{ width: '18rem', backgroundColor:'#0000' }}>
+                <Card.Body>
+                    <Card.Title>INI HALAMAN Koas</Card.Title>
+                    <Card.Text>
+                        <p><b>Produk :</b> {titleKaos} </p>
+                        <p><b>Description :</b> {descKaos} </p>
+                        <p><b>Harga :</b> {hargaKaos} </p>
+                    </Card.Text>
+                    <Button variant="primary" onClick={HandleButton}>Beli</Button>
+                </Card.Body>
+            </Card>
         </div>
         
     )
