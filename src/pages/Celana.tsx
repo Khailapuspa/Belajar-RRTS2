@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { desc, harga, title } from "../features/celana/celanaSlice";
 import { beliBajuAsync } from "../actions/PostBajus";
 import { Button, Card } from "react-bootstrap";
+import HeadBar from "../components/HeadBar";
 
 const Celana = () => {
 
@@ -23,7 +24,8 @@ const Celana = () => {
     }
 
     return (
-        <div>
+        <>
+        <HeadBar />
             <Card style={{ color: '#0D0D0D' }}>
                 <Card.Body>
                     <Card.Title>INI HALAMAN Celana</Card.Title>
@@ -35,7 +37,7 @@ const Celana = () => {
                     <Button variant="primary" onClick={HandleButton}>Beli</Button>
                 </Card.Body>
             </Card>
-        </div>
+        </>
     )
 }
 

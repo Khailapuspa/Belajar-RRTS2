@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { desc, harga, title } from "../features/kaos/kaosSlice";
 import { beliBajuAsync } from "../actions/PostBajus";
 import { Button, Card } from "react-bootstrap";
+import HeadBar from "../components/HeadBar";
 
 
 const Kaos = () => {
@@ -18,6 +19,8 @@ const Kaos = () => {
     }
 
     return (
+        <>
+        <HeadBar />
         <Card style={{ color: '#0D0D0D' }}>
             <Card.Body>
                 <Card.Title>INI HALAMAN Kaos</Card.Title>
@@ -29,6 +32,7 @@ const Kaos = () => {
                 <Button variant="primary" onClick={HandleButton}>Beli</Button>
             </Card.Body>
         </Card>
+        </>
     )
 }
 
