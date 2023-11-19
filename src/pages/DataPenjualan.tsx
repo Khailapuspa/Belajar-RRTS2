@@ -28,6 +28,7 @@ const DataPenjualan = () => {
     const dispatch = useAppDispatch();
     const dataTable: DataItem[] = useAppSelector(data);
     const [searchh, setSearch] = useState('');
+    const [selectedId, setSelectedId] = useState(0);
     const dataSearch: DataSearch = useAppSelector(search)
 
     const HandleSearch = () => {
@@ -39,7 +40,7 @@ const DataPenjualan = () => {
     }
 
     const HandleUpdate = (id: number) => {
-        // dispatch(updateAsync({ id:, title, desc, harga }));
+        // dispatch(updateAsync({ id: id, title, desc, harga }));
     }
 
     const [show, setShow] = useState(false);
@@ -105,7 +106,7 @@ const DataPenjualan = () => {
                                     <td>{data.harga}</td>
                                     <td>
                                         <Button variant="danger" onClick={() => HandleDelete(data.id)}>Hapus</Button>
-                                        <Button variant="primary" onClick={handleShow}>Update</Button>
+                                        <Button variant="primary" onClick={() => { handleShow(); setSelectedId(data.id) }} >Update</Button>
                                     </td>
                                 </tr>
                             ))}
@@ -120,7 +121,7 @@ const DataPenjualan = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Nama Produk</InputGroup.Text>
                                 <Form.Control
-                                    placeholder="Username"
+                                    placeholder="nama"
                                     aria-label="nama"
                                     aria-describedby="basic-addon1"
                                 />
@@ -128,7 +129,7 @@ const DataPenjualan = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Deskripsi</InputGroup.Text>
                                 <Form.Control
-                                    placeholder="Username"
+                                    placeholder="deskripsi"
                                     aria-label="Username"
                                     aria-describedby="basic-addon1"
                                 />
@@ -136,7 +137,7 @@ const DataPenjualan = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Harga</InputGroup.Text>
                                 <Form.Control
-                                    placeholder="Username"
+                                    placeholder="harga"
                                     aria-label="Username"
                                     aria-describedby="basic-addon1"
                                 />
@@ -146,7 +147,7 @@ const DataPenjualan = () => {
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary" onClick={handleClose}>
+                            <Button variant="primary" onClick={() => HandleUpdate(selectedId)}>
                                 Save Changes
                             </Button>
                         </Modal.Footer>
