@@ -29,6 +29,7 @@ const DataPenjualan = () => {
     const dataTable: DataItem[] = useAppSelector(data);
     const [searchh, setSearch] = useState('');
     const [selectedId, setSelectedId] = useState(0);
+    const [updateData, setUpdateData] = useState({ title: '', desc: '', harga: 0 });
     const dataSearch: DataSearch = useAppSelector(search)
 
     const HandleSearch = () => {
@@ -40,7 +41,8 @@ const DataPenjualan = () => {
     }
 
     const HandleUpdate = (id: number) => {
-        // dispatch(updateAsync({ id: id, title, desc, harga }));
+        dispatch(updateAsync({ id: id, ...updateData }));
+        handleClose();
     }
 
     const [show, setShow] = useState(false);
@@ -121,6 +123,8 @@ const DataPenjualan = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Nama Produk</InputGroup.Text>
                                 <Form.Control
+                                    value={updateData.title}
+                                    onChange={(e) => setUpdateData({ ...updateData, title: e.target.value })}
                                     placeholder="nama"
                                     aria-label="nama"
                                     aria-describedby="basic-addon1"
@@ -129,14 +133,18 @@ const DataPenjualan = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Deskripsi</InputGroup.Text>
                                 <Form.Control
+                                    value={updateData.desc}
+                                    onChange={(e) => setUpdateData({ ...updateData, desc: e.target.value })}
                                     placeholder="deskripsi"
-                                    aria-label="Username"
+                                    aria-label="deskripsi"
                                     aria-describedby="basic-addon1"
                                 />
                             </InputGroup>
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1">Harga</InputGroup.Text>
                                 <Form.Control
+                                    value={updateData.harga}
+                                    onChange={(e) => setUpdateData({ ...updateData, harga: parseFloat(e.target.value) })}
                                     placeholder="harga"
                                     aria-label="Username"
                                     aria-describedby="basic-addon1"
